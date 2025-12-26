@@ -1,0 +1,12 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f4f5;
+  color: #333;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+header { text-align: center; padding: 4rem 0; }
+h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+.card { background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.socials a { margin: 0 10px; text-decoration: none; color: #007bff; font-weight: bold;}
