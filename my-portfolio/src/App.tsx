@@ -1,69 +1,82 @@
 // src/App.tsx
-import './App.css' // standard vite import
+import './index.css'
 
-// Define a type for your project data
 interface Project {
   title: string;
   description: string;
+  tech: string[];
   link: string;
 }
 
 function App() {
+  // You can easily add more projects here later
   const projects: Project[] = [
     {
-      title: "Project Title 1",
-      description: "A brief description of what this project does and the tech stack used.",
-      link: "#"
+      title: "Portfolio Website",
+      description: "A responsive personal portfolio built with React, TypeScript, and Vite deployed on GitHub Pages.",
+      tech: ["React", "TypeScript", "Vite"],
+      link: "https://github.com/YOUR_USERNAME/portfolio" 
     },
     {
-      title: "Project Title 2",
-      description: "Another cool project showing off your TypeScript skills.",
+      title: "Example App",
+      description: "A placeholder for your next big project. Maybe a dashboard, a game, or a useful utility script.",
+      tech: ["Python", "React", "API"],
       link: "#"
     }
   ];
 
   return (
     <div className="container">
-      {/* Hero Section */}
       <header>
         <h1>Your Name</h1>
-        <p>Developer | Creator | Problem Solver</p>
-        <div className="socials">
+        <p className="subtitle">Software Engineer | Creative Thinker</p>
+        
+        <div className="social-links">
+          {/* Update these links with your actual URLs */}
           <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="mailto:your@email.com">Email</a>
         </div>
       </header>
 
-      {/* About Section */}
       <section>
         <h2>About Me</h2>
         <div className="card">
           <p>
-            Hello! I am a software engineer building with React and TypeScript.
-            [Write a short bio here about your background].
+            Welcome to my digital garden. I enjoy building software that solves real problems.
+            I specialize in React and TypeScript, but I'm always exploring new technologies.
+            When I'm not coding, you can find me [mention a hobby here].
           </p>
         </div>
       </section>
 
-      {/* Projects Section */}
       <section>
         <h2>Projects</h2>
-        {projects.map((project, index) => (
-          <div className="card" key={index}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <a href={project.link}>View Code</a>
-          </div>
-        ))}
+        <div className="project-grid">
+          {projects.map((project, index) => (
+            <div className="card" key={index}>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              
+              <div className="tech-stack">
+                {project.tech.map((t, i) => (
+                  <span key={i} className="tag">{t}</span>
+                ))}
+              </div>
+
+              <a href={project.link} target="_blank" rel="noreferrer" className="btn">
+                View Code
+              </a>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{textAlign: 'center', marginTop: '4rem', opacity: '0.6'}}>
-        <p>&copy; {new Date().getFullYear()} Your Name. Built with React & TypeScript.</p>
+      <footer>
+        <p>© {new Date().getFullYear()} Built with React & TypeScript</p>
       </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
